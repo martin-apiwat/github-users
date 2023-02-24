@@ -31,12 +31,19 @@ function App() {
       <nav>
         <h1>Min github söksida</h1>
         <h2>{search}</h2>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button onClick={() => getUsers()}>Sök</button>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            getUsers();
+          }}
+        >
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button>Sök</button>
+        </form>
       </nav>
 
       {users
